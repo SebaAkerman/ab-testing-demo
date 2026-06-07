@@ -3,31 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You!</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f9f9f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-    .container { max-width: 400px; padding: 48px; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .checkmark { font-size: 3rem; margin-bottom: 16px; }
-    h1 { font-size: 1.8rem; margin-bottom: 12px; color: #2e7d32; }
-    p { color: #555; margin-bottom: 8px; line-height: 1.5; }
-    .meta { margin-top: 24px; font-size: 0.8rem; color: #aaa; }
-    a { color: #1a73e8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <title>Purchase Complete!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <div class="checkmark">✓</div>
-    <h1>Purchase Complete!</h1>
-    <p>Thanks for buying Super Widget.</p>
-    {% if elapsed is not none %}
-    <p>You decided in <strong>{{ "%.1f"|format(elapsed) }} seconds</strong>.</p>
-    {% endif %}
-    <div class="meta">
-      Variant: <strong>{{ variant }}</strong><br>
-      <a href="/">← Back to store</a>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+
+  <div class="bg-white rounded-2xl shadow-lg w-full max-w-sm p-8 flex flex-col items-center gap-5 text-center">
+
+    <!-- Checkmark -->
+    <svg class="w-20 h-20" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="26" cy="26" r="25" fill="#22c55e"/>
+      <polyline points="14,27 22,35 38,19"
+                fill="none" stroke="white" stroke-width="3.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Heading -->
+    <h1 class="text-2xl font-bold text-gray-900">Purchase Complete!</h1>
+
+    <!-- Variant + elapsed -->
+    <div class="w-full bg-gray-50 rounded-xl px-5 py-4 flex flex-col gap-2 text-sm text-gray-600">
+
+      <div class="flex justify-between">
+        <span class="text-gray-400">Variant</span>
+        <span class="font-semibold font-mono">{{ variant }}</span>
+      </div>
+
+      {% if elapsed is not none %}
+      <div class="flex justify-between">
+        <span class="text-gray-400">Decision time</span>
+        <span class="font-semibold">{{ "%.1f"|format(elapsed) }}s</span>
+      </div>
+      {% endif %}
+
     </div>
+
+    <!-- Insight line -->
+    <div class="text-sm font-medium">
+      {% if variant == 'B' and elapsed is not none and elapsed < 30 %}
+        <span class="text-orange-600">The urgency worked! 🎯</span>
+      {% elif variant == 'A' %}
+        <span class="text-blue-600">Clean UX — no pressure needed ✓</span>
+      {% endif %}
+    </div>
+
+    <!-- Try again -->
+    <a href="/"
+       class="w-full py-3 rounded-lg bg-gray-100 hover:bg-gray-200 active:bg-gray-300
+              text-gray-700 font-medium text-base transition-colors duration-150 block">
+      Try Again
+    </a>
+
   </div>
+
 </body>
 </html>

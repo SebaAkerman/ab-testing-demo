@@ -1,7 +1,7 @@
 import random
 import time
 
-from flask import Flask, request, make_response, render_template, jsonify
+from flask import Flask, request, make_response, render_template, jsonify, redirect
 from prometheus_client import Counter, Histogram, make_wsgi_app
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
@@ -69,6 +69,16 @@ def buy():
 
     buy_clicks_total.labels(variant=variant).inc()
     return render_template("thank_you.html", variant=variant, elapsed=elapsed)
+
+
+@flask_app.route("/force/<variant>")
+def force_variant(variant):
+    if variant not in ('A', 'B'):
+        return 'Invalid variant', 400
+    resp = make_response(redirect('/'))
+    resp.set_cookie(COOKIE_VARIANT, variant, max_age=30*24*3600, httponly=True)
+    resp.set_cookie(COOKIE_TS, '', max_age=0)
+    return resp
 
 
 @flask_app.route("/simulate", methods=["POST"])

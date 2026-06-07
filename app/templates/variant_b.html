@@ -3,34 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Widget — Limited Offer!</title>
+  <title>DevWidget Pro — LIMITED OFFER</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f4f4f4; color: #222; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-    .container { max-width: 480px; padding: 40px; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
-    h1 { font-size: 2.2rem; margin-bottom: 8px; }
-    .tagline { font-size: 1rem; color: #e53935; font-weight: bold; margin-bottom: 12px; }
-    .price { font-size: 1.5rem; color: #333; margin-bottom: 16px; }
-    .description { color: #555; margin-bottom: 16px; line-height: 1.5; }
-    .testimonial { font-style: italic; background: #f9f9f9; border-left: 3px solid #4caf50; padding: 10px 16px; margin-bottom: 20px; color: #555; font-size: 0.9rem; }
-    .stock { color: #e53935; font-weight: bold; margin-bottom: 20px; }
-    .btn { display: inline-block; padding: 16px 44px; background: #2e7d32; color: #fff; font-size: 1.15rem; border: none; border-radius: 4px; cursor: pointer; }
-    .btn:hover { background: #1b5e20; }
-    .variant-badge { margin-top: 24px; font-size: 0.75rem; color: #aaa; }
+    body { background: linear-gradient(135deg, #0f0c29 0%, #302b63 60%, #24243e 100%); }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.6); }
+      50%       { box-shadow: 0 0 0 14px rgba(22, 163, 74, 0); }
+    }
+    .btn-pulse { animation: pulse-glow 1.8s infinite; }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Super Widget</h1>
-    <div class="tagline">⭐ #1 Bestseller — Limited Time Offer!</div>
-    <div class="price">$29.99</div>
-    <p class="description">Join thousands of happy customers. Our award-winning widget transforms your workflow in minutes.</p>
-    <div class="testimonial">"Best purchase I made this year. Worth every penny!" — María G.</div>
-    <div class="stock">Only 3 left in stock — order now!</div>
-    <form method="POST" action="/buy">
-      <button class="btn" type="submit">Buy Now — Limited Offer!</button>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8 flex flex-col items-center gap-5"
+       style="background: linear-gradient(160deg, #ffffff 80%, #fefce8 100%);">
+
+    <!-- Badge -->
+    <div class="bg-red-600 text-white text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+      🔥 Limited Offer — 20% Off
+    </div>
+
+    <!-- Icon -->
+    <div class="w-20 h-20 rounded-2xl bg-green-50 flex items-center justify-center text-green-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06
+                 a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09
+                 A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83
+                 l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09
+                 A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83
+                 l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09
+                 a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83
+                 l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09
+                 a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </div>
+
+    <!-- Product info -->
+    <div class="text-center">
+      <h1 class="text-2xl font-bold text-gray-900 tracking-tight">DevWidget Pro</h1>
+      <p class="mt-1 text-sm text-gray-500">The professional developer tool</p>
+    </div>
+
+    <!-- Price -->
+    <div class="flex items-baseline gap-3">
+      <span class="text-lg line-through text-gray-400">$49.00</span>
+      <span class="text-4xl font-extrabold text-green-600">$39.00</span>
+    </div>
+
+    <!-- Stock warning -->
+    <div class="w-full bg-red-50 border border-red-200 rounded-lg px-4 py-2 text-center">
+      <p class="text-red-700 text-sm font-semibold">⚡ Only 3 units left in stock!</p>
+    </div>
+
+    <!-- Countdown -->
+    <div class="text-sm text-gray-600 font-medium">
+      ⏳ Offer expires in: <span id="countdown" class="font-mono font-bold text-red-600">10:00</span>
+    </div>
+
+    <!-- CTA -->
+    <form method="POST" action="/buy" class="w-full">
+      <button type="submit"
+        class="btn-pulse w-full py-3.5 rounded-lg text-white font-bold text-base
+               transition-colors duration-150"
+        style="background-color: #16a34a;">
+        Buy Now — Save $10!
+      </button>
     </form>
-    <div class="variant-badge">Variant B</div>
+
+    <!-- Social proof -->
+    <p class="text-xs text-gray-500">✓ 1,247 people bought this today</p>
+
   </div>
+
+  <!-- Classroom pill -->
+  <div class="fixed bottom-4 right-4 bg-white/20 text-white text-xs font-mono px-3 py-1 rounded-full backdrop-blur-sm">
+    {{ variant }}
+  </div>
+
+  <script>
+    (function () {
+      let secs = 10 * 60;
+      const el = document.getElementById('countdown');
+      const tick = setInterval(function () {
+        if (secs <= 0) { clearInterval(tick); el.textContent = '00:00'; return; }
+        secs--;
+        const m = String(Math.floor(secs / 60)).padStart(2, '0');
+        const s = String(secs % 60).padStart(2, '0');
+        el.textContent = m + ':' + s;
+      }, 1000);
+    })();
+  </script>
+
 </body>
 </html>

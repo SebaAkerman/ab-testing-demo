@@ -3,28 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Super Widget — Buy Now</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-    .container { max-width: 480px; padding: 40px; text-align: center; }
-    h1 { font-size: 2rem; margin-bottom: 12px; }
-    .price { font-size: 1.5rem; color: #555; margin-bottom: 24px; }
-    .description { color: #666; margin-bottom: 32px; line-height: 1.5; }
-    .btn { display: inline-block; padding: 14px 40px; background: #1a73e8; color: #fff; font-size: 1.1rem; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; }
-    .btn:hover { background: #1558b0; }
-    .variant-badge { margin-top: 24px; font-size: 0.75rem; color: #aaa; }
-  </style>
+  <title>DevWidget Pro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <h1>Super Widget</h1>
-    <div class="price">$29.99</div>
-    <p class="description">A high-quality widget for all your needs. Simple, reliable, and affordable.</p>
-    <form method="POST" action="/buy">
-      <button class="btn" type="submit">Buy Now</button>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+
+  <div class="bg-white rounded-2xl shadow-lg w-full max-w-sm p-8 flex flex-col items-center gap-6">
+
+    <!-- Icon -->
+    <div class="w-20 h-20 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06
+                 a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09
+                 A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83
+                 l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09
+                 A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83
+                 l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09
+                 a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83
+                 l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09
+                 a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+    </div>
+
+    <!-- Product info -->
+    <div class="text-center">
+      <h1 class="text-2xl font-semibold text-gray-900 tracking-tight">DevWidget Pro</h1>
+      <p class="mt-1 text-sm text-gray-500">The professional developer tool</p>
+    </div>
+
+    <!-- Price -->
+    <div class="text-3xl font-light text-gray-400">$49.00</div>
+
+    <!-- CTA -->
+    <form method="POST" action="/buy" class="w-full">
+      <button type="submit"
+        class="w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 active:bg-blue-800
+               text-white font-medium text-base transition-colors duration-150">
+        Buy Now
+      </button>
     </form>
-    <div class="variant-badge">Variant A</div>
+
+    <!-- Footer -->
+    <p class="text-xs text-gray-400">Free shipping · 30-day returns</p>
+
   </div>
+
+  <!-- Classroom pill -->
+  <div class="fixed bottom-4 right-4 bg-gray-100 text-gray-400 text-xs font-mono px-3 py-1 rounded-full">
+    {{ variant }}
+  </div>
+
 </body>
 </html>
