@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You!</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f9f9f9; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { max-width: 400px; padding: 48px; text-align: center; background: #fff; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .checkmark { font-size: 3rem; margin-bottom: 16px; }
+    h1 { font-size: 1.8rem; margin-bottom: 12px; color: #2e7d32; }
+    p { color: #555; margin-bottom: 8px; line-height: 1.5; }
+    .meta { margin-top: 24px; font-size: 0.8rem; color: #aaa; }
+    a { color: #1a73e8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark">✓</div>
+    <h1>Purchase Complete!</h1>
+    <p>Thanks for buying Super Widget.</p>
+    {% if elapsed is not none %}
+    <p>You decided in <strong>{{ "%.1f"|format(elapsed) }} seconds</strong>.</p>
+    {% endif %}
+    <div class="meta">
+      Variant: <strong>{{ variant }}</strong><br>
+      <a href="/">← Back to store</a>
+    </div>
+  </div>
+</body>
+</html>

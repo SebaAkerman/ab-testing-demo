@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Widget — Buy Now</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #ffffff; color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { max-width: 480px; padding: 40px; text-align: center; }
+    h1 { font-size: 2rem; margin-bottom: 12px; }
+    .price { font-size: 1.5rem; color: #555; margin-bottom: 24px; }
+    .description { color: #666; margin-bottom: 32px; line-height: 1.5; }
+    .btn { display: inline-block; padding: 14px 40px; background: #1a73e8; color: #fff; font-size: 1.1rem; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; }
+    .btn:hover { background: #1558b0; }
+    .variant-badge { margin-top: 24px; font-size: 0.75rem; color: #aaa; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Super Widget</h1>
+    <div class="price">$29.99</div>
+    <p class="description">A high-quality widget for all your needs. Simple, reliable, and affordable.</p>
+    <form method="POST" action="/buy">
+      <button class="btn" type="submit">Buy Now</button>
+    </form>
+    <div class="variant-badge">Variant A</div>
+  </div>
+</body>
+</html>
